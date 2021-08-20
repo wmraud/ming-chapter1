@@ -35,4 +35,11 @@
 	WHERE USERID = #{userId}
 	  AND USERPASS = #{userPass} 
    </delete>
+   
+   <!-- 패스워드 체크 -->
+<select id="passChk" resultType="int">
+	SELECT COUNT(*) FROM MP_MEMBER
+	WHERE USERID = #{userId}
+	  AND USERPASS = #{userPass}
+</select>
 </mapper>
