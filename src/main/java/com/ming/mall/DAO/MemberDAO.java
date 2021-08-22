@@ -14,4 +14,6 @@ public interface MemberDAO {
 	public void memberDelete(MemberVO vo)throws Exception;
 	// 패스워드 체크
 	public int passChk(MemberVO vo) throws Exception;
+	// 아이디 중복체크
+	public int idChk(MemberVO vo) throws Exception;
 }
