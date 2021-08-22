@@ -13,6 +13,4 @@ public interface MemberService {
 	public void memberDelete(MemberVO vo) throws Exception;
 	//비밀번호 체크
 	public int passChk(MemberVO vo) throws Exception;
-	//아이디 중복체크
-	public int idChk(MemberVO vo) throws Exception;
 }
