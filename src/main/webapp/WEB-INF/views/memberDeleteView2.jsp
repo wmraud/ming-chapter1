@@ -15,7 +15,9 @@
 		$(document).ready(function(){
 			// 취소
 			$(".cencle").on("click", function(){
+				
 				location.href = "/login";
+						    
 			})
 		
 			$("#submit").on("click", function(){
@@ -50,7 +52,7 @@
 	</script>
 	<body>
 		<section id="container">
-			<form action="/mall/memberDelete" method="post" id="delForm">
+			<form action="/member/memberDelete" method="post" id="delForm">
 				<div class="form-group has-feedback">
 					<label class="control-label" for="userId">아이디</label>
 					<input class="form-control" type="text" id="userId" name="userId" value="${member.userId}" readonly="readonly"/>
