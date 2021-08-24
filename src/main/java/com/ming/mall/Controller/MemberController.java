@@ -34,7 +34,6 @@ public class MemberController {
 	public void getRegister() throws Exception {
 		logger.info("get register");
 	}
-	
 	// 회원가입 post
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String postRegister(MemberVO vo) throws Exception {
@@ -47,7 +46,7 @@ public class MemberController {
 				String inputPass = vo.getUserPass();
 				String pwd = pwdEncoder.encode(inputPass);
 				vo.setUserPass(pwd);
-				
+	
 				service.register(vo);
 			}
 			// 요기에서~ 입력된 아이디가 존재한다면 -> 다시 회원가입 페이지로 돌아가기 
@@ -73,7 +72,6 @@ public class MemberController {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
 		}
-		
 		return "redirect:/";
 	}
 	
@@ -94,9 +92,9 @@ public class MemberController {
 	//회원정보수정 get
 	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
 	public String registerUpdateView() throws Exception{
-		
 		return "/memberUpdateView";
 	}
+	
     //회원정보수정 post
 	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
 	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception{
@@ -140,6 +138,7 @@ public class MemberController {
 			
 			service.memberDelete(vo);
 			session.invalidate();
+			
 			return "redirect:/";
 		}
 		
@@ -147,11 +146,11 @@ public class MemberController {
 		@ResponseBody
 		@RequestMapping(value="/passChk", method = RequestMethod.POST)
 		public boolean passChk(MemberVO vo) throws Exception {
-
 			MemberVO login = service.login(vo);
 			boolean pwdChk = pwdEncoder.matches(vo.getUserPass(), login.getUserPass());
 			return pwdChk;
 		}
+		
 		// 아이디 중복 체크
 		@ResponseBody
 		@RequestMapping(value="/idChk", method = RequestMethod.POST)

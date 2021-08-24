@@ -16,6 +16,15 @@
 	                 		  , #{content}
 	                 		  , #{writer}  )
    </insert>
+   <!-- 게시판 목록 조회 -->
+   	<select id="list" resultType="com.ming.mall.VO.BoardVO">
+		SELECT   BNO
+			   , TITLE
+			   , WRITER
+			   , REGDATE
+		  FROM MP_BOARD
+		  ORDER BY BNO DESC
+	</select>
    
 </mapper>
 
