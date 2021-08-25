@@ -36,6 +36,20 @@
 		 FROM MP_BOARD
 		 WHERE BNO = #{bno}
 	</select>
+	
+	<!-- 게시판 수정,삭제 -->
+	 <update id="update" parameterType="com.ming.mall.VO.BoardVO">
+		UPDATE MP_BOARD
+		   SET TITLE    =   #{title},
+		   	   CONTENT  =   #{content}
+		 WHERE BNO = #{bno} 
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE 
+		  FROM MP_BOARD
+		 WHERE BNO = #{bno}
+	</delete>
    
 </mapper>
 
