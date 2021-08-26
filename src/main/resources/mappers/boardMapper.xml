@@ -10,14 +10,11 @@
 	   INSERT INTO MP_BOARD(    BNO 
 	   					      , TITLE 
 	   					      , CONTENT 
-	   					      , WRITER
-	   					      , REGDATE  )
-	   					      
+	   					      , WRITER  )
 	                 VALUES(    #{bno}
 	                 		  , #{title}
 	                 		  , #{content}
-	                 		  , #{writer}
-	                 		  , now() )
+	                 		  , #{writer}  )
    </insert>
    <!-- 게시판 목록 조회 -->
    	<select id="list" resultType="com.ming.mall.VO.BoardVO">
