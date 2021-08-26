@@ -11,10 +11,9 @@
 				<h1> 게시판</h1>
 			</header>
 			<hr />
-			 
-			<nav>
-			  홈 - 글 작성
-			</nav>
+			 <div>
+				<%@include file="nav.jsp" %>
+			</div>
 			<hr />
 			
 			<section id="container">

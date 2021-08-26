@@ -5,6 +5,10 @@
 	<head>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	 	<title>게시판</title>
+	 	
+	 	<div>
+				<%@include file="nav.jsp" %>
+		</div>
 	</head>
 	
 	<script type="text/javascript">
@@ -19,10 +23,16 @@
 			})
 			
 			// 삭제
-			$(".delete_btn").on("click", function(){ 
-				formObj.attr("action", "delete");
-				formObj.attr("method", "post"); 
+			$(".delete_btn").on("click", function(){
+				
+				var deleteYN = confirm("삭제하시겠습니까?");
+				if(deleteYN == true){
+					
+				formObj.attr("action", "/delete");
+				formObj.attr("method", "post");
 				formObj.submit();
+					
+				}
 			})
 			
 			// 취소
