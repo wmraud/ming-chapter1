@@ -30,13 +30,33 @@
 		               TITLE, 
 		               CONTENT, 
 		               WRITER, 
-		               REGDATE, 
+		               REGDATE,
 		               ROW_NUMBER() OVER(ORDER BY BNO DESC) AS RNUM
-		         FROM MP_BOARD 
+		         FROM MP_BOARD
+		         WHERE 1=1 
+		         	<include refid="search"></include>
 		                       ) MP
 		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
 		ORDER BY BNO DESC
 	</select>
+	
+	<!-- 게시판 한 페이지 총 갯수 -->
+	<select id="listCount" parameterType="com.ming.mall.VO.SearchCriteria" resultType="int">
+		SELECT COUNT(BNO)
+		   FROM MP_BOARD
+		   WHERE 1=1
+		<include refid="search"></include>	
+		   AND BNO > 0
+	</select>	
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">AND TITLE LIKE CONCAT('%', ${keyword}, '%')</if>
+			<if test="searchType == 'c'.toString()">AND CONTENT LIKE CONCAT('%', ${keyword}, '%')</if>
+			<if test="searchType == 'w'.toString()">AND WRITER LIKE CONCAT('%', ${keyword}, '%')</if>
+			<if test="searchType == 'tc'.toString()">AND (TITLE LIKE CONCAT '%', ${keyword}, '%') or (CONTENT like CONCAT '%', ${keyword}, '%')</if>
+		</if>
+	</sql>
 	
 	<!-- 게시판 상세조회 -->
 	<select id="read" parameterType="int" resultType="com.ming.mall.VO.BoardVO">
@@ -49,26 +69,18 @@
 		 WHERE BNO = #{bno}
 	</select>
 	
-	<!-- 게시판 수정,삭제 -->
+	<!-- 게시판 수정 -->
 	 <update id="update" parameterType="com.ming.mall.VO.BoardVO">
 		UPDATE MP_BOARD
 		   SET TITLE    =   #{title},
 		   	   CONTENT  =   #{content}
 		 WHERE BNO = #{bno} 
 	</update>
-	
+	<!-- 게시판 삭제 -->
 	<delete id="delete" parameterType="int">
 		DELETE 
 		  FROM MP_BOARD
 		 WHERE BNO = #{bno}
 	</delete>
-    <!-- 게시글 한 페이지 총 갯수 -->
-    <select id="listCount" resultType="int">
-	<![CDATA[
-		SELECT COUNT(BNO)
-		  FROM MP_BOARD
-		 WHERE BNO > 0
-	]]>
-	</select>
 </mapper>
 

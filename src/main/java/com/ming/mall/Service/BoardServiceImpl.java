@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.ming.mall.VO.BoardVO;
 import com.ming.mall.VO.Criteria;
+import com.ming.mall.VO.SearchCriteria;
 import com.ming.mall.DAO.BoardDAO;
 
 @Service
@@ -23,13 +24,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 	// 게시물 목록 조회
 	@Override
-	public List<BoardVO> list(Criteria cri) throws Exception {
-		return dao.list(cri);
+	public List<BoardVO> list(SearchCriteria scri) throws Exception {
+		return dao.list(scri);
 	}
 	// 게시글 한 페이지 총 갯수
 	@Override
-	public int listCount() throws Exception {
-		return dao.listCount();
+	public int listCount(SearchCriteria scri) throws Exception {
+		return dao.listCount(scri);
 	}
 	// 게시물 상세 조회
 	@Override
