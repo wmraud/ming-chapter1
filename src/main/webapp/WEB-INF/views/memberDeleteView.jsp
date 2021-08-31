@@ -15,7 +15,7 @@
 		$(document).ready(function(){
 			// 취소
 			$(".cencle").on("click", function(){
-				location.href = "/login";
+				location.href = "/";
 			})
 		
 			$("#submit").on("click", function(){
@@ -25,7 +25,7 @@
 					return false;
 				}
 				$.ajax({
-					url : "/member/passChk",
+					url : "/passChk",
 					type : "POST",
 					dateType : "json",
 					data : $("#delForm").serializeArray(),
@@ -46,7 +46,7 @@
 	</script>
 	<body>
 		<section id="container">
-			<form action="/mall/memberDelete" method="post" id="delForm">
+			<form action="/memberDelete" method="post" id="delForm">
 				<div class="form-group has-feedback">
 					<label class="control-label" for="userId">아이디</label>
 					<input class="form-control" type="text" id="userId" name="userId" value="${member.userId}" readonly="readonly"/>

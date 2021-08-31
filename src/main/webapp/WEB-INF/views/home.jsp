@@ -30,7 +30,7 @@
 </script>
 
 <body>
- <form name='homeForm' method="post" action="/mall/login">
+ <form name='homeForm' method="post" action="/login">
   <c:if test="${member == null}">
    <div>
     <label for="userId"></label>
@@ -51,7 +51,7 @@
 	  <p>${member.userId}님 환영 합니다.</p>
 	  <button id="memberUpdateBtn" type="button">회원정보수정</button>
 	  <button id="logoutBtn" type="button">로그아웃</button>
-	  <a href = "/mall/memberDeleteView">회원탈퇴</a>
+	  <a href = "/memberDeleteView">회원탈퇴</a>
 	 </div>
 	</c:if>
 	<c:if test="${msg == false}">

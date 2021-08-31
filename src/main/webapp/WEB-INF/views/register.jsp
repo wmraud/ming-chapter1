@@ -15,7 +15,7 @@
 		$(document).ready(function(){
 			// 취소
 			$(".cencle").on("click", function(){
-				location.href = "/mall";
+				location.href = "/";
 			})
 			
 			$("#submit").on("click", function(){
@@ -45,7 +45,7 @@
 		
 		function fn_idChk(){
 			$.ajax({
-				url : "/mall/idChk",
+				url : "/idChk",
 				type : "post",
 				dataType : "json",
 				data : {"userId" : $("#userId").val()},
@@ -62,7 +62,7 @@
 	</script>
 	<body>
 		<section id="container">
-			<form action="/mall/register" method="post" id="regForm">
+			<form action="/register" method="post" id="regForm">
 				<div class="form-group has-feedback">
 					<label class="control-label" for="userId">아이디</label>
 					<input class="form-control" type="text" id="userId" name="userId" />

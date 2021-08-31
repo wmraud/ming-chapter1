@@ -13,21 +13,27 @@
 			
 			// 수정 
 			$(".update_btn").on("click", function(){
-				formObj.attr("action", "updateView");
+				formObj.attr("action", "/board/updateView");
 				formObj.attr("method", "get");
 				formObj.submit();
 			})
 			
 			// 삭제
-			$(".delete_btn").on("click", function(){ 
-				formObj.attr("action", "delete");
-				formObj.attr("method", "post"); 
+			$(".delete_btn").on("click", function(){
+				
+				var deleteYN = confirm("삭제하시겠습니가?");
+				if(deleteYN == true){
+					
+				formObj.attr("action", "/board/delete");
+				formObj.attr("method", "post");
 				formObj.submit();
+					
+				}
 			})
 			
 			// 취소
 			$(".list_btn").on("click", function(){
-				location.href = "list";
+				location.href = "/board/list";
 			})
 		})
 	</script>
@@ -40,9 +46,9 @@
 			</header>
 			<hr />
 			 
-			<nav>
-			  홈 - 글 작성
-			</nav>
+			<div>
+				<%@include file="nav.jsp" %>
+			</div>
 			<hr />
 			
 			<section id="container">

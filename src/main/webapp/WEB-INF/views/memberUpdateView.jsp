@@ -17,7 +17,7 @@
 			// 취소
 			$(".cencle").on("click", function(){
 				
-				location.href = "/mall"; 
+				location.href = "/";
 			})
 			$("#submit").on("click", function(){
 				if($("#userPass").val()==""){
@@ -31,7 +31,7 @@
 					return false;
 				}
 				$.ajax({
-					url : "/member/passChk",
+					url : "/passChk",
 					type : "POST",
 					dateType : "json",
 					data : $("#updateForm").serializeArray(),
@@ -53,7 +53,7 @@
 	
 	<body>
 		<section id="container">
-			<form id="updateForm" action="/mall/memberUpdate" method="post">
+			<form id="updateForm" action="/memberUpdate" method="post">
 				<div class="form-group has-feedback">
 					<label class="control-label" for="userId">아이디</label>
 					<input class="form-control" type="text" id="userId" name="userId" value="${member.userId}" readonly="readonly"/>

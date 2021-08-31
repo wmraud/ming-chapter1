@@ -10,7 +10,7 @@
 	<li>
 		<c:if test="${member != null}"><a href="/logout">로그아웃</a></c:if>
 		<c:if test="${member == null}"><a href="/">로그인</a></c:if>
-	</li>
+	</li><br><br>
 	<li>
 		<c:if test="${member != null}">
 			<p>${member.userId}님 안녕하세요.</p>

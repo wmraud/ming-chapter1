@@ -8,10 +8,12 @@
 	<insert id="register">
 	    INSERT INTO MP_MEMBER(   USERID 
 	   					       , USERPASS 
-	   					       , USERNAME 	)
+	   					       , USERNAME
+	   					       , REGDATE 	)
 	                  VALUES(    #{userId} 
 	                 		   , #{userPass}
-	                 		   , #{userName})
+	                 		   , #{userName}
+	                 		   , now())
     </insert>
     
     <!-- 로그인 -->
