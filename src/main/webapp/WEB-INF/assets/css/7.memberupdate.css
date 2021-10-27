@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+
+#hr_line{
+  margin-bottom: 4%;
+}
+
+#ming22{
+    line-height: 30px;
+    border : 1px hidden #292525;
+    background-color : #ffffff;
+    color : #1b1b1b;
+    width: 90px;
+    height: 29px;
+    font-size: small;
+    float: right;
+    font-weight: bold;
+}
+#ming22 {
+position: relative;
+}
+
+#ming22::after {
+content: "";
+position: absolute;
+left: 50%;
+bottom: -3px;
+width: 60%;
+height: 1px;
+opacity: 0;
+background-color: #1b1b1b;
+transform: translate(-50%, 0);
+transition: all 0.3s ease-in-out;
+}
+
+#ming22:hover::after {
+width: 100%;
+opacity: 1;
+}
+
+#ming22:focus {outline:none;}
+
+.inpoediter_a_name1{
+    border: 1px solid #1b1b1b;
+    border-radius: 2rem;
+    max-width: 100%;
+    width: 115rem;
+    height: 28.5rem;
+    margin-left: auto;
+    margin-right : auto;
+    text-align: center;
+}
+.inpoediter_a_name2{
+    max-width: 75%;
+    width: auto;
+    height: auto;
+    margin-left: auto;
+    margin-right : auto;
+    color : #1b1b1b;
+    font-size : 0.95rem;
+    text-align: center;
+}
+
+.memberUpdate_input{
+    height: 20px;
+    width: 200px;
+    padding-top : 7px;
+    padding-bottom: 7px;
+    border : 2px solid #1b1b1b;
+    border-radius: 26px;
+    text-align : center;
+    outline: none;
+  }
+
+  /* 회원정보변경 */
+.change_save {
+  width: 6rem;
+  height: 2rem;
+  margin-top: auto;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 2px;
+  border : 1.7px solid #1b1b1b;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-size: 1.4ch;
+  position: relative;
+}
+
+/* 회원정보변경취소 */
+.change_notsave {
+    width: 6rem;
+    height: 2rem;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+    letter-spacing: 2px;
+    border : 1.7px solid #1b1b1b;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 1.4ch;
+    position: relative;
+}
+
+.update_delete_btn {
+  width: 12.5rem;
+  height: 2rem;
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  letter-spacing: 2px;
+  border : 1.7px solid #1b1b1b;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  font-size: 1.4ch;
+  position: relative;
+}
+
+.updateform{
+   margin-top: -4rem;
+}
+
+  /* mainfooter */
+  #mainfooter{
+    background-color: white;
+    color: #1b1b1b;
+    bottom: 0%;
+    font-size: smaller;
+    font-weight: bold;
+    text-align: right;
+    font-family: Pacifico, serif;
+    margin-top: 10%;
+}
+
+.header{
+  padding-bottom: 2.2%;
+  padding-top: 4.5%;
+}
+
+#mingresetmid{
+    text-align: center;
+}
+
+/* mainreset */
+#mingreset{
+    border : 0px none #ffffff;
+    background-color : #ffffff;
+    font-size : 35px;
+    outline: none;
+    font-family: Pacifico, serif;
+    color: #1b1b1b;
+    padding: 2 20px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#mingreset::before,
+#mingreset::after {
+position: absolute;
+content: '';
+left: 0;
+height: 2px;
+width: 100%;
+background-color: #1b1b1b;
+transition: transform 0.3s ease-in-out;
+border : none;
+}
+
+#mingreset::before {
+top: 0;
+transform: translateX(-100%);
+}
+
+#mingreset::after {
+bottom: 0;
+transform: translateX(100%);
+}
+
+#mingreset:hover::after,
+#mingreset:hover::before {
+transform: translateX(0);
+}
+
+/* time_clock , weather */
+
+#clock_weather{
+  text-align: center;
+  padding-top: 4%;
+  padding-left: 37%;
+  font-family: 'Mukta', sans-serif;
+ }
+ 
+ .time_nav div{
+     float: left;
+     width: 10rem;
+     height: auto;
+     color : #1b1b1b;
+ }
+ 
+ .time_nav{
+   position: absolute;
+   width: 50rem;
+   height: 6rem;
+   line-height: 30%;
+   font-size: 14px;
+   font-weight: 600;
+   text-transform: uppercase;
+ }

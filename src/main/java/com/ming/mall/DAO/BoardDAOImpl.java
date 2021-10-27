@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 
 import com.ming.mall.VO.BoardVO;
 import com.ming.mall.VO.Criteria;
-import com.ming.mall.VO.SearchCriteria;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO {
@@ -24,15 +23,15 @@ public class BoardDAOImpl implements BoardDAO {
 	}
 	// 게시물 목록 조회
 	@Override
-	public List<BoardVO> list(SearchCriteria scri) throws Exception {
+	public List<BoardVO> list(Criteria cri) throws Exception {
 		// TODO Auto-generated method stud
-		return sqlSession.selectList("boardMapper.listPage", scri);
+		return sqlSession.selectList("boardMapper.listPage", cri);
 	}
 	// 게시물 한 페이지 총 갯수
 		@Override
-		public int listCount(SearchCriteria scri) throws Exception {
+		public int listCount() throws Exception {
 			// TODO Auto-generated method stud
-			return sqlSession.selectOne("boardMapper.listCount", scri);
+			return sqlSession.selectOne("boardMapper.listCount");
 		}
 	// 게시물 상세조회
 	@Override

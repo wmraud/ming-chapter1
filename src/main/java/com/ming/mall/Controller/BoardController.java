@@ -6,16 +6,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ming.mall.Service.BoardService;
 import com.ming.mall.VO.BoardVO;
 import com.ming.mall.VO.Criteria;
 import com.ming.mall.VO.PageMaker;
-import com.ming.mall.VO.SearchCriteria;
 
 @Controller
 public class BoardController {
@@ -41,14 +38,14 @@ public class BoardController {
 	
 	// 게시판 목록 조회	
 	@RequestMapping(value = "board/list", method = RequestMethod.GET)
-	public String list(Model model, @ModelAttribute("scri") SearchCriteria scri) throws Exception{
+	public String list(Model model, Criteria cri) throws Exception{
 		logger.info("list");
 		
-		model.addAttribute("list", service.list(scri));
+		model.addAttribute("list", service.list(cri));
 		
 		PageMaker pageMaker = new PageMaker();
-		pageMaker.setCri(scri);
-		pageMaker.setTotalCount(service.listCount(scri));
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(service.listCount());
 		
 		model.addAttribute("pageMaker", pageMaker);
 		
@@ -58,11 +55,9 @@ public class BoardController {
 	
 	// 게시판 상세조회
 	@RequestMapping(value = "board/readView", method = RequestMethod.GET)
-	public String read(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, Model model) throws Exception{
+	public String read(BoardVO boardVO, Model model) throws Exception{
 		logger.info("read");
-		
 		model.addAttribute("read", service.read(boardVO.getBno()));
-		model.addAttribute("scri", scri);
 		return "board/readView";
 	}
 	
@@ -76,29 +71,17 @@ public class BoardController {
 	
 	// 게시판 수정
 	@RequestMapping(value = "board/update", method = RequestMethod.POST)
-	public String update(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, RedirectAttributes rttr) throws Exception{
+	public String update(BoardVO boardVO) throws Exception{
 		logger.info("update");
 		service.update(boardVO);
-		
-		rttr.addAttribute("page", scri.getPage());
-		rttr.addAttribute("perPageNum", scri.getPerPageNum());
-		rttr.addAttribute("searchType", scri.getSearchType());
-		rttr.addAttribute("keyword", scri.getKeyword());
-		
 		return "redirect:/board/list";	
 	}
 
 	// 게시판 삭제
 	@RequestMapping(value = "board/delete", method = RequestMethod.POST)
-	public String delete(BoardVO boardVO, @ModelAttribute("scri") SearchCriteria scri, RedirectAttributes rttr) throws Exception{
+	public String delete(BoardVO boardVO) throws Exception{
 		logger.info("delete");
 		service.delete(boardVO.getBno());
-		
-		rttr.addAttribute("page", scri.getPage());
-		rttr.addAttribute("perPageNum", scri.getPerPageNum());
-		rttr.addAttribute("searchType", scri.getSearchType());
-		rttr.addAttribute("keyword", scri.getKeyword());
 		return "redirect:/board/list";
 	}
-	
 }

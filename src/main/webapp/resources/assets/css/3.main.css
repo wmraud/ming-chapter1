@@ -1,0 +1,33 @@
+.nolocationming22{
+  line-height: 30px;
+  border : 1px hidden #292525;
+  background-color : #ffffff;
+  color : #1b1b1b;
+  width: 90px;
+  height: 29px;
+  font-size: small;
+  font-weight: bold;
+}
+.nolocationming22 {
+position: relative;
+}
+
+.nolocationming22::after {
+content: "";
+position: absolute;
+left: 50%;
+bottom: -3px;
+width: 60%;
+height: 1px;
+opacity: 0;
+background-color: #1b1b1b;
+transform: translate(-50%, 0);
+transition: all 0.3s ease-in-out;
+}
+
+.nolocationming22:hover::after {
+width: 100%;
+opacity: 1;
+}
+
+.nolocationming22:focus {outline:none;}

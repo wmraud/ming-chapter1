@@ -27,16 +27,15 @@
 				formObj.attr("action", "/board/delete");
 				formObj.attr("method", "post");
 				formObj.submit();
+					
 				}
 			})
 			
-			// 목록
-$(".list_btn").on("click", function(){
-
-location.href = "/board/list?page=${scri.page}"
-+"&perPageNum=${scri.perPageNum}"
-+"&searchType=${scri.searchType}&keyword=${scri.keyword}";
-})	})
+			// 취소
+			$(".list_btn").on("click", function(){
+				location.href = "/board/list";
+			})
+		})
 	</script>
 	
 	<body>
@@ -54,12 +53,8 @@ location.href = "/board/list?page=${scri.page}"
 			
 			<section id="container">
 				<form name="readForm" role="form" method="post">
-  <input type="hidden" id="bno" name="bno" value="${read.bno}" />
-  <input type="hidden" id="page" name="page" value="${scri.page}"> 
-  <input type="hidden" id="perPageNum" name="perPageNum" value="${scri.perPageNum}"> 
-  <input type="hidden" id="searchType" name="searchType" value="${scri.searchType}"> 
-  <input type="hidden" id="keyword" name="keyword" value="${scri.keyword}"> 
-</form>
+					<input type="hidden" id="bno" name="bno" value="${read.bno}" />
+				</form>
 				<table>
 					<tbody>
 						<tr>

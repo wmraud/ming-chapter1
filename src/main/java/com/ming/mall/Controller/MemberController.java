@@ -34,6 +34,7 @@ public class MemberController {
 	public void getRegister() throws Exception {
 		logger.info("get register");
 	}
+	
 	// 회원가입 post
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String postRegister(MemberVO vo) throws Exception {

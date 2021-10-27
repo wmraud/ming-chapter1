@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+
+#backcolor{
+    background-color : #111111;
+    height: 100%;
+    width: 100%;
+}
+#mainreset{
+    margin-top: 20%;
+    border : 0px none #ffffff;
+    background-color : #111111;
+    font-size : 35px;
+    outline: none;
+    font-family: Pacifico, serif;
+    color: #ffffff;
+    margin-left: 30%;
+    line-height: 70px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#mainresetmid{
+    text-align: center;
+}
+
+#mainreset::before,
+#mainreset::after {
+position: absolute;
+content: '';
+left: 0;
+height: 2px;
+width: 100%;
+background-color: #ffffff;
+transition: transform 0.3s ease-in-out;
+border : none;
+}
+
+#mainreset::before {
+top: 0;
+transform: translateX(-100%);
+}
+
+#mainreset::after {
+bottom: 0;
+transform: translateX(100%);
+}
+
+#mainreset:hover::after,
+#mainreset:hover::before {
+transform: translateX(0);
+}
+
+#mainfooter{
+    background-color: #111111;
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: bold;
+    font-family: Pacifico, serif;
+    margin-top: 20%;
+    text-align: center;
+}
+
+/*½Ã°£*/
+.time_nav{
+    position: absolute;
+    top : 2%;
+    left: 2%;
+  width: 30rem;
+  height: 6rem;
+  text-align: center;
+  line-height: 30%;
+  font-size: 13px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: 'Mukta', sans-serif;
+}
+.time_nav div{
+    float: left;
+    width: 10rem;
+    height: auto;
+    color : #ffffff;
+}
+
+#ming22{
+    line-height: 30px;
+    border : 1px hidden #292525;
+    background-color : #111111;
+    color : #ffffff;
+    width: 100px;
+    height: 29px;
+    font-size: small;
+    float: right;
+    font-weight: bold;
+}
+#ming22 {
+position: relative;
+}
+
+#ming22::after {
+content: "";
+position: absolute;
+left: 50%;
+bottom: -3px;
+width: 80%;
+height: 1px;
+opacity: 0;
+background-color: #ffffff;
+transform: translate(-50%, 0);
+transition: all 0.3s ease-in-out;
+}
+
+#ming22:hover::after {
+width: 100%;
+opacity: 1;
+}
+
+#ming22:focus {outline:none;}
